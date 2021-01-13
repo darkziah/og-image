@@ -106,9 +106,16 @@ function getCss(theme: string, fontSize: string) {
       #productName {
           padding-top: 25px
       }
+      #productPrice {
+        font-family: 'Inter', sans-serif;
+        font-size: ${sanitizeHtml(fontSize)};
+        font-style: bold;
+        color: ${foreground};
+        line-height: 1.8;
+      }
       #logo {
-          width: 96px;
-          height: 96px;
+          width: 124px;
+          height: 124px;
           position: absolute;
           bottom:30px;
 right: 30px;
@@ -141,13 +148,8 @@ export function getHtml(parsedReq: ParsedRequest) {
                         <div>
                         <h1 id="productName" class="display-1">${productName}</h1>
                         <span>${productCode}</span>
-                        </br>
-                        </br>
-                        <h1 id="productPrice" class="display-5">${productPrice}</h1>
-                        </br>
-                        </br>
-                        </br>
-                        </br>
+                        <div id="productPrice" >${productPrice}</div>
+                        
                         <img id="logo" src="${"https://dev.shop.yehey.jp/logo.png"}"
                             class="img-fluid float-start rounded-circle" alt="productImage" >
                            </div>
