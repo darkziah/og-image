@@ -10,4 +10,7 @@ export interface ParsedRequest {
     images: string[];
     widths: string[];
     heights: string[];
+    productName: string[];
+    productPrice: string[];
+    productCode: string[];
 }

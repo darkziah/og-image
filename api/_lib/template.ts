@@ -47,7 +47,8 @@ function getCss(theme: string, fontSize: string) {
         background: ${background};
         background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
         background-size: 100px 100px;
-        height: 100vh;
+        width: 1200px;
+        height: 630px;
         display: flex;
         text-align: center;
         align-items: center;
@@ -100,38 +101,88 @@ function getCss(theme: string, fontSize: string) {
         font-style: normal;
         color: ${foreground};
         line-height: 1.8;
-    }`;
+    }
+    
+    
+     #productImg {
+          width: 630;
+        height: 630;
+      }
+      .row {
+          height: 630;
+      }
+      #productName {
+          padding-top: 25px
+      }
+      #logo {
+          width: 64px;
+          height: 64px;
+          position: absolute;
+
+right: 30px;
+font-size: 18px;
+      }`;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+    const { text, theme, md, fontSize, images, widths, heights, productName, productPrice, productCode  } = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
+                    
     <style>
         ${getCss(theme, fontSize)}
+
+       
     </style>
     <body>
         <div>
             <div class="spacer">
             <div class="logo-wrapper">
                 ${images.map((img, i) =>
-                    getPlusSign(i) + getImage(img, widths[i], heights[i])
-                ).join('')}
+        getPlusSign(i) + getImage2(img)
+    ).join('')}
             </div>
             <div class="spacer">
             <div class="heading">${emojify(
-                md ? marked(text) : sanitizeHtml(text)
-            )}
+        md ? marked(text) : sanitizeHtml(text)
+    )}
             </div>
         </div>
     </body>
+    <body>
+                     <div class="row">
+                     <div class="col-6">
+                           
+                           </div>
+                         <div class="col-6">
+                        <div>
+                        <h1 id="productName">${productName}</h1>
+                        <span>${productCode}</span>
+                        </br>
+                        </br>
+                        <h1 id="productPrice">${productPrice}</h1>
+                        </br>
+                        </br>
+                        </br>
+                        </br>
+                        <img id="logo" src="${"https://dev.shop.yehey.jp/logo.png"}"
+                            class="img-fluid float-start rounded-circle" alt="productImage" >
+                           </div>
+                       </div>
+                       </div>
+                    </div>
+                    </body>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.min.js" integrity="sha384-5h4UG+6GOuV9qXh6HqOLwZMY4mnLPraeTrjT5v07o347pj6IkfuoASuGBhfDsp3d" crossorigin="anonymous"></script>
+                    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
+                    
 </html>`;
 }
 
-function getImage(src: string, width ='auto', height = '225') {
+function getImage(src: string, width = 'auto', height = '225') {
     return `<img
         class="logo"
         alt="Generated Image"
@@ -139,6 +190,11 @@ function getImage(src: string, width ='auto', height = '225') {
         width="${sanitizeHtml(width)}"
         height="${sanitizeHtml(height)}"
     />`
+}
+
+function getImage2(src: string, width = 'auto', height = '225') {
+    return `<img id="productImg" src="${src}"
+    class="img-fluid float-start rounded" alt="productImage" >`
 }
 
 function getPlusSign(i: number) {
