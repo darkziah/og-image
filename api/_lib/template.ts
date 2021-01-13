@@ -125,7 +125,7 @@ font-size: 18px;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, theme, md, fontSize, images, widths, heights, productName, productPrice, productCode  } = parsedReq;
+    const { text, theme, md, fontSize, images, widths, heights, productName, productPrice, productCode, productId  } = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -142,8 +142,8 @@ export function getHtml(parsedReq: ParsedRequest) {
         <div>
             <div class="spacer">
             <div class="logo-wrapper">
-                ${images.map((img, i) =>
-        getPlusSign(i) + getImage2(img)
+                ${productId.map((img, i) =>
+        getPlusSign(i) + getImage2(`https://dev.shop.yehey.jp/api/images/${img}`)
     ).join('')}
             </div>
             <div class="spacer">
@@ -192,7 +192,7 @@ function getImage(src: string, width = 'auto', height = '225') {
     />`
 }
 
-function getImage2(src: string, width = 'auto', height = '225') {
+function getImage2(src: string) {
     return `<img id="productImg" src="${src}"
     class="img-fluid float-start rounded" alt="productImage" >`
 }

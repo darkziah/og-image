@@ -13,4 +13,6 @@ export interface ParsedRequest {
     productName: string[];
     productPrice: string[];
     productCode: string[];
+    productId: string[];
+
 }
