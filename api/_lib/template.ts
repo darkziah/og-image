@@ -107,10 +107,10 @@ function getCss(theme: string, fontSize: string) {
           padding-top: 25px
       }
       #logo {
-          width: 64px;
-          height: 64px;
+          width: 96px;
+          height: 96px;
           position: absolute;
-
+          bottom:30px;
 right: 30px;
 font-size: 18px;
       }`;
@@ -139,11 +139,11 @@ export function getHtml(parsedReq: ParsedRequest) {
                            </div>
                          <div class="col-6">
                         <div>
-                        <h1 id="productName">${productName}</h1>
+                        <h1 id="productName" class="display-1">${productName}</h1>
                         <span>${productCode}</span>
                         </br>
                         </br>
-                        <h1 id="productPrice">${productPrice}</h1>
+                        <h1 id="productPrice" class="display-5">${productPrice}</h1>
                         </br>
                         </br>
                         </br>
