@@ -103,8 +103,9 @@ function getCss(theme: string, fontSize: string) {
       .row {
           height: 630;
       }
-      #productName {
+      .productName {
           padding-top: 50px
+          padding-right: 60px;
           font-family: 'Inter', sans-serif;
        
       }
@@ -127,7 +128,7 @@ function getCss(theme: string, fontSize: string) {
           height: 124px;
           position: absolute;
           bottom:30px;
-right: 30px;
+right: 60px;
 font-size: 18px;
       }`;
 }
@@ -155,7 +156,7 @@ export function getHtml(parsedReq: ParsedRequest) {
                            </div>
                          <div class="col-6">
                         <div>
-                        <h1 id="productName" class="display-1">${productName}</h1>
+                        <h1 class="productName display-1">${productName}</h1>
                         <span id="productCode">${productCode}</span>
                         <div id="productPrice" >${productPrice}</div>
                         
