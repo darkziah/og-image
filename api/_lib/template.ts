@@ -104,13 +104,13 @@ function getCss(theme: string, fontSize: string) {
           height: 630;
       }
       #productName {
-          padding-top: 25px
+          padding-top: 50px
           font-family: 'Inter', sans-serif;
        
       }
 
       #productPrice {
-        padding-top: 200px
+        padding-top: 300px
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: bold;
