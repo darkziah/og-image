@@ -97,8 +97,8 @@ function getCss(theme: string, fontSize: string) {
     
     
      #productImg {
-          width: 630;
-        height: 630;
+          width: 630px;
+        height: 630px;
       }
       .row {
           height: 630;
