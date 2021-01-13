@@ -1,11 +1,7 @@
 
 import { readFileSync } from 'fs';
-import marked from 'marked';
 import { sanitizeHtml } from './sanitizer';
 import { ParsedRequest } from './types';
-const twemoji = require('twemoji');
-const twOptions = { folder: 'svg', ext: '.svg' };
-const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 const rglr = readFileSync(`${__dirname}/../_fonts/Inter-Regular.woff2`).toString('base64');
 const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString('base64');
@@ -125,7 +121,7 @@ font-size: 18px;
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-    const { text, theme, md, fontSize, images, widths, heights, productName, productPrice, productCode, productId  } = parsedReq;
+    const { theme, fontSize, productName, productPrice, productCode, productId  } = parsedReq;
     return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -138,25 +134,13 @@ export function getHtml(parsedReq: ParsedRequest) {
 
        
     </style>
-    <body>
-        <div>
-            <div class="spacer">
-            <div class="logo-wrapper">
-                ${productId.map((img, i) =>
-        getPlusSign(i) + getImage2(`https://dev.shop.yehey.jp/api/images/${img}`)
-    ).join('')}
-            </div>
-            <div class="spacer">
-            <div class="heading">${emojify(
-        md ? marked(text) : sanitizeHtml(text)
-    )}
-            </div>
-        </div>
-    </body>
+    
     <body>
                      <div class="row">
                      <div class="col-6">
-                           
+                     ${productId.map((img, i) =>
+                        getPlusSign(i) + getImage2(`https://dev.shop.yehey.jp/api/images/${img}`)
+                    ).join('')}
                            </div>
                          <div class="col-6">
                         <div>
@@ -182,15 +166,6 @@ export function getHtml(parsedReq: ParsedRequest) {
 </html>`;
 }
 
-function getImage(src: string, width = 'auto', height = '225') {
-    return `<img
-        class="logo"
-        alt="Generated Image"
-        src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
-    />`
-}
 
 function getImage2(src: string) {
     return `<img id="productImg" src="${src}"
