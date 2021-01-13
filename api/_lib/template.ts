@@ -45,10 +45,6 @@ function getCss(theme: string, fontSize: string) {
         background-size: 100px 100px;
         width: 1200px;
         height: 630px;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
     }
 
     code {
@@ -126,7 +122,6 @@ export function getHtml(parsedReq: ParsedRequest) {
 <html>
     <meta charset="utf-8">
     <title>Generated Image</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
                     
     <style>
