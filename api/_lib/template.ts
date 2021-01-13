@@ -105,13 +105,25 @@ function getCss(theme: string, fontSize: string) {
       }
       #productName {
           padding-top: 25px
+          font-family: 'Inter', sans-serif;
+        font-size: ${sanitizeHtml(fontSize)};
+        font-style: bold;
+        color: ${foreground};
+        line-height: 1.8;
       }
+
       #productPrice {
+        padding-top: 200px
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: bold;
         color: ${foreground};
         line-height: 1.8;
+      }
+
+      #productCode {
+        font-family: 'Inter', sans-serif;
+        color: ${foreground};
       }
       #logo {
           width: 124px;
@@ -146,8 +158,8 @@ export function getHtml(parsedReq: ParsedRequest) {
                            </div>
                          <div class="col-6">
                         <div>
-                        <h1 id="productName" class="display-1">${productName}</h1>
-                        <span>${productCode}</span>
+                        <div id="productName" >${productName}</div>
+                        <span id="productCode">${productCode}</span>
                         <div id="productPrice" >${productPrice}</div>
                         
                         <img id="logo" src="${"https://dev.shop.yehey.jp/logo.png"}"
