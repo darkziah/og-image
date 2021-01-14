@@ -118,16 +118,16 @@ function getCss(theme: string, fontSize: string) {
 
       #productPrice {
        
-        
-      }
-
-      .pprice {
-        padding-top: 300px
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: bold;
         color: ${foreground};
         line-height: 1.8;
+      }
+
+      .pprice {
+        padding-top: 300px
+        
       }
 
       #productCode {
@@ -171,8 +171,8 @@ export function getHtml(parsedReq: ParsedRequest) {
                         <h1 class="productName display-1">${productName}</h1>
                         </div>
                         <span id="productCode">${productCode}</span>
-                        <div class="pname">
-                        <div id="pprice" >${productPrice}</div>
+                        <div class="pprice">
+                        <div id="productPrice" >${productPrice}</div>
                         </div>
                         <img id="logo" src="${"https://dev.shop.yehey.jp/logo.png"}"
                             class="img-fluid float-start rounded-circle" alt="productImage" >
