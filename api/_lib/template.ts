@@ -118,15 +118,16 @@ function getCss(theme: string, fontSize: string) {
 
       #productPrice {
        
+        
+      }
+
+      .pprice {
+        padding-top: 300px
         font-family: 'Inter', sans-serif;
         font-size: ${sanitizeHtml(fontSize)};
         font-style: bold;
         color: ${foreground};
         line-height: 1.8;
-      }
-
-      .pprice {
-        padding-top: 300px
       }
 
       #productCode {
