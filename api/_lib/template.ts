@@ -126,7 +126,7 @@ function getCss(theme: string, fontSize: string) {
       }
 
       .pprice {
-        padding-top: 60px
+        padding-top: 30px
         
       }
 
